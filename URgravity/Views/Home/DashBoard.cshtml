@@ -1,0 +1,67 @@
+﻿@model URgravity.Models.User
+@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+ <!--  <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                To learn more about ASP.NET MVC visit
+                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
+                If you have any questions about ASP.NET MVC visit
+                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.<a href="~/Views/Home/Index.cshtml">~/Views/Home/Index.cshtml</a>
+            </p>
+        </div>
+    </section>
+ -->
+}
+<div id="profilebar">
+    <a href="~/Views/Home/Index" id="profileimg"><img src="@Model.Avatar" width="100" /></a>
+    <p><b>Name:</b>@Model.DisplayName</p>
+    <p><b>City:</b>@Model.City</p>
+    <p><b>State:</b>@Model.State</p>
+    <p><b>Gender:</b>@Model.Gender</p>
+
+    @if (Model.HasFitBitData) {
+        @:  <p>User have FitBit Data</p>
+    }
+    else {
+        @:  <p>User Don't have FitBit Data</p>
+    }
+
+    <img src="@Model.ImageWeightUrl" alt="" />
+
+    <img src="@Model.ImageFatRationUrl" alt="" />
+
+
+
+
+</div>
+<div id="urinfo">
+    <div id="urgoals" class="urinfogrid">
+        <h2>Goals</h2>
+        <p>Here is where you will view your goals</p>
+        <ul>
+            <li><a href="">Goal 1</a></li>
+            <li><a href="">Goal 2</a></li>
+        </ul>
+    </div>
+    <div id="urdaystats" class="urinfogrid">
+        <h2>Today's Stats</h2>
+        <p>So many stats about ur life</p>
+    </div>
+        <div id="urweekstats" class="urinfogrid">
+        <h2>Weekly Stats</h2>
+        <p>Weekly Stats about ur life</p>
+
+    </div>
+    <div id="urmonthstats" class="urinfogrid">
+        <h2>Monthly Stats</h2>
+        <p>So many stats about ur life</p>
+    </div>
+</div>

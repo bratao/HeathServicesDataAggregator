@@ -1,0 +1,807 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Meiners.Libs.Withings
+</name>
+</assembly>
+<members>
+<member name="P:Meiners.Libs.Withings.Measure.MeasureType">
+	<summary>
+ Gets the MeasureType
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.Measure.Unit">
+	<summary>
+ A unit which represents the power of 10 that has to be multipled by value to find the actual data (integer).
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Measure.CalculateValue">
+	<summary>
+ Returns the calculated Value. 
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Measure.#ctor(System.Double,System.Int32,Meiners.Libs.Withings.MeasureTypeEnum)">
+	<summary>
+ Creates a new measure instance
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.Measure">
+	<summary>
+ A measure is an actual measurement of something.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.WBSAPI_Error_100_Message">
+	<summary>
+  Looks up a localized string similar to The hash is missing, invalid, or does not match the provided email.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.WBSAPI_Error_247_Message">
+	<summary>
+  Looks up a localized string similar to The user id is either absent or incorrect.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.WBSAPI_Error_250_Message">
+	<summary>
+  Looks up a localized string similar to The user id and public key provided do not match, or the user does not share its data.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.WBSAPI_Error_2555_Message">
+	<summary>
+  Looks up a localized string similar to An unknown error occurred.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.WBSAPI_Error_264_Message">
+	<summary>
+  Looks up a localized string similar to The email address provided is either unknown or invalid.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.WBSAPI_Error_286_Message">
+	<summary>
+  Looks up a localized string similar to No such subscription was found.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.WBSAPI_Error_293_Message">
+	<summary>
+  Looks up a localized string similar to The callback URL is either absent or incorrect.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.WBSAPI_Error_294_Message">
+	<summary>
+  Looks up a localized string similar to No such subscription could be deleted.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.My.Resources.Resources.WBSAPI_Error_304_Message">
+	<summary>
+  Looks up a localized string similar to The comment is either absent or incorrect.
+</summary>
+</member><member name="T:Meiners.Libs.Withings.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:Meiners.Libs.Withings.GetUserListResponse.Users">
+	<summary>
+ Gets true, if the operation was successfull
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.IHttpConnector.GetWebserviceResponse(System.String)">
+	<summary>
+ Should return a website content
+ </summary>
+	<param name="address">url to download</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.GetUserByIDResponse.User">
+	<summary>
+ Gets true, if the operation was successfull
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.Exceptions.WithingsException.StatusCode">
+	<summary>
+ Gets the WithingsService Error Code after Failure
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Exceptions.WithingsException.ToString">
+	<summary>
+ Returns a readable message for this Exception
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Exceptions.WithingsException.#ctor">
+	<summary>
+ Creates as new WithingsException
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Exceptions.WithingsException.#ctor(System.String)">
+	<summary>
+ Creates as new WithingsException
+ </summary>
+	<param name="message">Readable Meassage</param>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Exceptions.WithingsException.#ctor(System.String,System.Exception)">
+	<summary>
+ Creates as new WithingsException
+ </summary>
+	<param name="message">Readable Meassage</param>
+	<param name="innerException">Inner Exception</param>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Exceptions.WithingsException.#ctor(System.String,System.Int64)">
+	<summary>
+ Creates as new WithingsException
+ </summary>
+	<param name="message">Readable Meassage</param>
+	<param name="statusCode">statusCode from the WBSAPI</param>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Exceptions.WithingsException.#ctor(System.String,System.Int64,System.Exception)">
+	<summary>
+ Creates as new WithingsException
+ </summary>
+	<param name="message">Readable Meassage</param>
+	<param name="statusCode">statusCode from the WBSAPI</param>
+	<param name="innerException">Inner Exception</param>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.SetSubscriptionResponse.Success">
+	<summary>
+ Gets true, if the operation was successfull
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.UpdateUserResponse.Success">
+	<summary>
+ Gets true, if the operation was successfull
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.UpdateUserResponse.#ctor(Meiners.Libs.Withings.Core.StatusResponseEnum)">
+	<summary>
+ For WBSAPIConnector only
+ </summary>
+	<param name="status"></param>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.UpdateUserResponse">
+	<summary>
+ Descripes the repsonse of the wbs api
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.Core.WBSAPIConnector.WebConnector">
+	<summary>
+ Gets or Sets the engine for downloading a website
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.Core.WBSAPIConnector.WSBAPIAddress">
+	<summary>
+ Gets or sets the base website address for the Withings Body metric Services API - don't change if it is not necessary
+ </summary>
+	<value>DefaultValue = http://wbsapi.withings.net/</value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.BuildWSBAPIAddress(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+ Creates a queryable websiteaddress
+ </summary>
+	<param name="serviceName"></param>
+	<param name="action"></param>
+	<param name="parameter">(Optional) List of parameters</param>
+	<exception cref="T:System.ArgumentNullException">thrown, if serviceName or action is null or empty</exception>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.GetMagicStringForHash">
+	<summary>
+ To compute the hash value, it is nessecary to get the magic string
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.CheckWebserviceConnection">
+	<summary>
+ Returns true, if the Service is accessible
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.GetUser(System.Int32,System.String)">
+	<summary>
+ Gets the specfied User
+ </summary>
+	<param name="userID"></param>
+	<param name="publicKey"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.UpdateUser(System.Int32,System.String,System.Int32)">
+	<summary>
+ Updates an User Account. Important: Public Key Changes after that
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.GetAccountUsers(System.String,System.String)">
+	<summary>
+ Returns the Userlist for an Account. Please don't call this directly - use the WithingsAccount calls instead. THis class knowns to create the hash Value
+ </summary>
+	<param name="emailAddress"></param>
+	<param name="hash"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.CreateNewWithingsUser(System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+ Transferss the WBSAPI JSON Properties into my withingsUser-Obeject
+ </summary>
+	<param name="parameterList"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.GetMeasures(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Gets a users measures
+ </summary>
+	<param name="userID">The userid of the target user. This can be obtained through an account/getuserslist or through the user's "Share" overlay in the dashboard.</param>
+	<param name="publicKey">The public key associated with the userid. This can be obtained through an account/getuserslist or through the user's "Share" overlay in the dashboard.</param>
+	<param name="startDate">Will prevent retrieval of values dated prior to the supplied parameter.</param>
+	<param name="endDate">Will prevent retrieval of values dated after the supplied parameter.</param>
+	<param name="devtype">Will retrieve data for this particular device type.</param>
+	<param name="meastype">Will restrict the type of data retrieved (see below the type list). Please note that currently this filter only supports weight (ie type 1) height (ie type 4) types.</param>
+	<param name="lastUpdate">Is useful for performing data synchronization. </param>
+	<param name="category">Can be set to 2 to retrieve objectives or to 1 to retrieve actual measurements.</param>
+	<param name="limit">Can be used to limit the number of measure groups returned in the result.</param>
+	<param name="offset">Can be used to skip the 'offset' most recent measure group records of the result set.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.CreateSubscribtion(System.Int32,System.String,System.String,System.String,Meiners.Libs.Withings.DeviceTypeEnum)">
+	<summary>
+ This service allows third parties to subscribe to notifications. Once the notification service has been subscribed, the WBS API will notify the subscriber whenever the target user's measurements or objectives are added, modified or deleted.
+ This allows third party applications to remain in sync with user's data.
+ To monitor a user, its userid and publickey are needed. Please note that unless the subscribed users have made their measurements data public, no notifications will be sent (see user/update on how to enable it).
+ </summary>
+	<param name="userID">The userid of the target user.</param>
+	<param name="publicKey">The public key associated with the userid.</param>
+	<param name="callbackURL">The URL-encoded URL used when subscribing to the notification service for the specified user.</param>
+	<param name="application">Default value : 1 (Bodyscale). This field specifies the device type for which the notification is to be retrieved. See measure/getmeas for supported device types.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.ReadSubscription(System.Int32,System.String,System.String,Meiners.Libs.Withings.DeviceTypeEnum)">
+	<summary>
+ This service allows third party applications to check whether the notification service was previously subscribed on a specific user and to retrieve the subscription expiry date.
+ </summary>
+	<param name="userID">The userid of the target user.</param>
+	<param name="publicKey">The public key associated with the userid.</param>
+	<param name="callbackURL">The URL-encoded URL used when subscribing to the notification service for the specified user.</param>
+	<param name="application">Default value : 1 (Bodyscale). This field specifies the device type for which the notification is to be retrieved. See measure/getmeas for supported device types.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.RevokeSubscription(System.Int32,System.String,System.String,Meiners.Libs.Withings.DeviceTypeEnum)">
+	<summary>
+ This service allows third party applications to revoke a previously subscribed notification. This will disable the push feature between the WBS API and the specified applications for the specified user.
+ </summary>
+	<param name="userID">The userid of the target user.</param>
+	<param name="publicKey">The public key associated with the userid.</param>
+	<param name="callbackURL">The URL-encoded URL used when subscribing to the notification service for the specified user.</param>
+	<param name="application">Default value : 1 (Bodyscale). This field specifies the device type for which the notification is to be retrieved. See measure/getmeas for supported device types.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.WBSAPIConnector.#ctor">
+	<summary>
+ Creates a new WBSAPI Connector an initiates a new httpConnector
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.Core.WBSAPIConnector">
+	<summary>
+ Core functionality - Connects an reads the WBSAPI
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.MeasureGroup.GroupId">
+	<summary>
+ A unique grpid (Group Id), useful for performing synchronization tasks.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.MeasureGroup.AttributionStatus">
+	<summary>
+ An attrib (Attribute), defining the way the measure was attributed to the user. It may take the values shown in the Attribution status table below.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.MeasureGroup.MeasureGroupDate">
+	<summary>
+ The date at which the measure was taken or entered.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.MeasureGroup.Category">
+	<summary>
+ The category of the group. A measure group can represent either measures captured by the device or objectives set by the user. The category field indicates for each measure group whether the measures in the group are measurements or targets. 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.MeasureGroup.GetMeasures">
+	<summary>
+ An array of measures that belong to this particular measure group.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.MeasureGroup.AddMeasure(Meiners.Libs.Withings.Measure)">
+	<summary>
+ Adds a measure to the group
+ </summary>
+	<param name="item"></param>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.MeasureGroup.#ctor">
+	<summary>
+ Creates a new MeasureGroup
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.MeasureGroup">
+	<summary>
+ Represents a MeasureGroup
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.ReadSubscriptionResponse.ExpireDate">
+	<summary>
+ Gets expiry date of the notification subscription for this user 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.ReadSubscriptionResponse.Comment">
+	<summary>
+ Gets the associated comment
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.ReadSubscriptionResponse.#ctor(Meiners.Libs.Withings.Core.StatusResponseEnum,System.DateTime,System.String)">
+	<summary>
+ for wbsapiconnector only
+ </summary>
+	<param name="status"></param>
+	<param name="expireDate"></param>
+	<param name="comment"></param>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Account.GetUserList">
+	<summary>
+ Returns the userlist
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Account.GetUserById(System.Int32)">
+	<summary>
+ Returns an withingsusers after setting public
+ </summary>
+	<param name="userID">the users id</param>
+	<exception cref="T:System.ArgumentNullException">if parameter userId is null or empty</exception>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Account.#ctor(System.String,System.String)">
+	<summary>
+ Creates a new Withings Body Metrics Service Connector.
+ </summary>
+	<param name="emailAddress">Users Emailadress for Login</param>
+	<param name="password">Users password for Login - will be stored as secure string</param>
+	<exception cref="T:System.ArgumentNullException">if one parameter is null or empty</exception>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.Account">
+	<summary>
+ Represents a withings account with mutiple users
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.Successfull">
+	<summary>
+ Operation was successfull
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.HashMissingOrInvalid">
+	<summary>
+ The hash is missing, invalid, or does not match the provided email
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.UserIdAbsentOrIncorrect">
+	<summary>
+ The userid provided is absent, or incorrect
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.UserDataIsNotPublic">
+	<summary>
+ The userid and publickey provided do not match, or the user does not share its data.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.EmailAddressIsUnknownInvalid">
+	<summary>
+ The email address provided is either unknown or invalid
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.NoSuchSubscriptionFound">
+	<summary>
+ No such subscription was found
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.CallbackUrlIsAbsentOrIncorrect">
+	<summary>
+ The callback URL is either absent or incorrect
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.NoSubscriptionCouldBeDeleted">
+	<summary>
+ No such subscription could be deleted
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.CommentAbsentOrIncorrect">
+	<summary>
+ The comment is either absent or incorrect
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.Core.StatusResponseEnum.AnUnknownErrorOccured">
+	<summary>
+ An unknown error occured (at the WithingsService)
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.Core.StatusResponseEnum">
+	<summary>
+ ResponseStatuscodes from the WBS API
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.Helper.EPOCHToDateTime(System.Int32)">
+	<summary>
+ Converts an epoch-date to a .NET Datetime Value
+ </summary>
+	<param name="value"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.Helper.DateTimeToEPOCH(System.DateTime)">
+	<summary>
+ Converts an a .NET Datetime Value to  epoch-date
+ </summary>
+	<param name="value"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.Helper.ConvertToUTF8String(System.String)">
+	<summary>
+ Converts a normal string to a utf 8 string
+ </summary>
+	<param name="input"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.Helper.EscapeUriString(System.String)">
+	<summary>
+ Escape the given input
+ </summary>
+	<param name="input"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.Helper.UrlEncode(System.String)">
+	<summary>
+ Returns then encoded url from input
+ </summary>
+	<param name="input">web address (e.g. http://www.yourdomain.net/yourCustomApplication.php)</param>
+	<returns>encoded string (e.g. http%3a%2f%2fwww.yourdomain.net%2fyourCustomApplication.php)</returns>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.Core.Helper">
+	<summary>
+ Helper function set
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.Core.HttpConnector.GetWebserviceResponse(System.String)">
+	<summary>
+ Download the content from the given url
+ </summary>
+	<param name="url">valid url!</param>
+	<returns>content or empty string after exception</returns>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.Core.HttpConnector">
+	<summary>
+ Internal class for download websites
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.DeviceTypeEnum.UserRelated">
+	<summary>
+ User related (for the moment, only height and weight)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.DeviceTypeEnum.BodyScale">
+	<summary>
+ Measure-Source is tzhe Withings BodyScale
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.DeviceTypeEnum.BloodPressureMonitor">
+	<summary>
+ Measure-Source is tzhe Withings lood Pressure Monitor
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.DeviceTypeEnum.All">
+	<summary>
+ all types
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.DeviceTypeEnum">
+	<summary>
+ Device types table
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.GenderEnum.Male">
+	<summary>
+ 0 for male
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.GenderEnum.Female">
+	<summary>
+ 1 for female
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.GenderEnum">
+	<summary>
+  Users Gender
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.AttributionStatusEnum.CapturedByDeviceBelongsToUser">
+	<summary>
+ The measuregroup has been captured by a device and is known to belong to this user (and is not ambiguous)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.AttributionStatusEnum.CapturedByDeviceCanBelongToOtherUser">
+	<summary>
+ The measuregroup has been captured by a device but may belong to other users as well as this one (it is ambiguous)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.AttributionStatusEnum.EnteredManually">
+	<summary>
+ The measuregroup has been entered manually for this particular user
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.AttributionStatusEnum.EnteredManuallyDuringAccountCreation">
+	<summary>
+ The measuregroup has been entered manually during user creation (and may not be accurate)
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.AttributionStatusEnum">
+	<summary>
+ Each measure group contains the following attributes.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.CategoryEnum.None">
+	<summary>
+ Unkown
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.CategoryEnum.IsMeasure">
+	<summary>
+ Defines the this Category is a Measure
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.CategoryEnum.IsTarget">
+	<summary>
+ Defines the this Category is a target of the user
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.CategoryEnum">
+	<summary>
+ The category of the group. A measure group can represent either measures captured by the device or objectives set by the user. The category field indicates for each measure group whether the measures in the group are measurements or targets.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.MeasureTypeEnum.None">
+	<summary>
+ Unkown Type
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.MeasureTypeEnum.Weight">
+	<summary>
+ Weight (kg)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.MeasureTypeEnum.Heigth">
+	<summary>
+ Height (meter)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.MeasureTypeEnum.FatFreeMass">
+	<summary>
+ Fat Free Mass (kg)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.MeasureTypeEnum.FatRation">
+	<summary>
+ Fat Ratio (%)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.MeasureTypeEnum.FatMassWeight">
+	<summary>
+ Fat Mass Weight (kg)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.MeasureTypeEnum.DiastolicBloodPressure">
+	<summary>
+ Diastolic Blood Pressure (mmHg)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.MeasureTypeEnum.SystolicBloodPressure">
+	<summary>
+ Systolic Blood Pressure (mmHg)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Meiners.Libs.Withings.MeasureTypeEnum.HeartPulse">
+	<summary>
+ Heart Pulse (bpm)
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.MeasureTypeEnum">
+	<summary>
+ Represents the Type given from the WithingsWebservice
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.GetMeasuresResponse.UpdateTime">
+	<summary>
+ The webservices local timestamp at which the Json response was generated
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.GetMeasuresResponse.HasMore">
+	<summary>
+ True, is your query yielded too many values to fit in a single group. Current limit is 2048.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>If present, this field means that your query yielded too many measure groups to fit in a single response. Either you provided a limit parameter and the query yielded more groups than limit, or you didn't and the query yielded more than the default implicit limit (currently 2048 groups by query). In any case, it is up to your application to request remaining groups using measure/getmeas and providing offset parameter. The more value represents the number of remaining groups still to be fetched.</remarks>
+</member><member name="M:Meiners.Libs.Withings.GetMeasuresResponse.ReadMeasureGroups">
+	<summary>
+ Gets the MeasureGroups with the requested values
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.GetMeasuresResponse.AddMeasureGroup(Meiners.Libs.Withings.MeasureGroup)">
+	<summary>
+ Add a MeasureGroup to the internal Liste
+ </summary>
+	<param name="item">new group to add</param>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.GetMeasuresResponse.#ctor(Meiners.Libs.Withings.Core.StatusResponseEnum,System.DateTime,System.Boolean)">
+	<summary>
+ Creates a new measure group (for WBSAPIConector only)
+ </summary>
+	<param name="status"></param>
+	<param name="updateTime"></param>
+	<param name="hasMore"></param>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.UserId">
+	<summary>
+ Gets the given userID (constructor parameter)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.PublicKey">
+	<summary>
+ Gets the Withings-publicKey, given in the constructor
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.FirstName">
+	<summary>
+ The user's firstname, as an UTF-8 encoded string
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.LastName">
+	<summary>
+ The user's lastname, as an UTF-8 encoded string
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.ShortName">
+	<summary>
+ The user's shortname
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.Gender">
+	<summary>
+ The user's gender
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.FatMethod">
+	<summary>
+ Byte indicating the Body Composition Formula in use
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.Birthdate">
+	<summary>
+ The user's birthdate
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.IsBodyScaleDataPublic">
+	<summary>
+ User shares bodyscaledate
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Meiners.Libs.Withings.User.IsBloodPressureMonitorDataPublic">
+	<summary>
+ user shares bloodpreasuredata
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.User.ReadMeasures(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},Meiners.Libs.Withings.DeviceTypeEnum,Meiners.Libs.Withings.MeasureTypeEnum,Meiners.Libs.Withings.CategoryEnum,System.Int32,System.Int32)">
+	<summary>
+	</summary>
+	<param name="startDate">Will prevent retrieval of values dated prior to the supplied parameter.</param>
+	<param name="endDate">Will prevent retrieval of values dated after the supplied parameter.</param>
+	<param name="devType">Will retrieve data for this particular device type.</param>
+	<param name="measType">Will restrict the type of data retrieved (see below the type list). Please note that currently this filter only supports weight (ie type 1) height (ie type 4) types.</param>
+	<param name="lastUpdate">Is useful for performing data synchronization.</param>
+	<param name="category">Can be set to IsTarget to retrieve objectives or to IsMeasure to retrieve actual measurements.</param>
+	<param name="limit">Can be used to limit the number of measure groups returned in the result.</param>
+	<param name="offset">Can be used to skip the 'offset' most recent measure group records of the result set.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.User.SetPublic(System.Boolean,System.Boolean)">
+	<summary>
+ Sets the datas public state - important: you have to reload the user aufter updateing!!
+ </summary>
+	<param name="setBodyScaleDatePublic">true, if you want to set the body Scale data on public</param>
+	<param name="setBloodPressureMonitorDataPublic">true, if you want to set the blood pressure monitor data on public</param>
+	<returns>ture, if operation was successful</returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.User.GetUserByUserId(System.Int32,System.String)">
+	<summary>
+ Loads user by userid and public key
+ </summary>
+	<param name="userID"></param>
+	<param name="publicKey"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.User.#ctor(System.Int32,System.String)">
+	<summary>
+ Creates a new Withings Body Metrics Service Connector.
+ </summary>
+	<param name="userID">Users WithingsID</param>
+	<param name="publicKey">Public Key for users account</param>
+	<exception cref="T:System.ArgumentException">throws an exception, if userID is less or equal zero</exception>
+	<exception cref="T:System.ArgumentNullException">if parameter publicKey is Null or empty</exception>
+	<remarks></remarks>
+</member><member name="M:Meiners.Libs.Withings.User.#ctor(System.Int32,System.String,System.String,System.String,System.String,Meiners.Libs.Withings.GenderEnum,System.String,System.DateTime,System.Boolean,System.Boolean)">
+	<summary>
+ This construcutr should be by the Core.WBSAPIConnector only
+ </summary>
+	<param name="userID"></param>
+	<param name="publicKey"></param>
+	<param name="firstName"></param>
+	<param name="lastName"></param>
+	<param name="shortName"></param>
+	<param name="gender"></param>
+	<param name="fatMethod"></param>
+	<param name="birthdate"></param>
+	<param name="isBodyScaleDataPublic"></param>
+	<param name="isBloodPressureMonitorDataPublic"></param>
+	<remarks></remarks>
+</member><member name="T:Meiners.Libs.Withings.User">
+	<summary>
+ Represents a single user in a withingsaccount
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

@@ -1,0 +1,43 @@
+﻿@model URgravity.Models.User
+@{
+    ViewBag.Title = "Registered Devices";
+}
+
+<div id="devicemain">
+<table border="1" id="dtable">
+  <tr>
+    <th class="theading">Device</th>
+    <th class="theading">Status</th>
+    <th class="theading">Action</th>
+  </tr>
+  <tr>
+    <td class="tdata">Fitbit</td>
+
+    @if (Model.HasFitBitData) {
+        @:  <td class="tdata">Enabled</td>
+        @:  <td class="tdata">@Html.ActionLink("Disable", "FitBit", "Home")</td>
+    }
+    else {
+        @:  <td class="tdata">Disabled</td>
+        @:  <td class="tdata">@Html.ActionLink("Activate", "FitBit", "Home")</td>
+    }
+    
+
+  </tr>
+  <tr>
+    <td class="tdata">Withings</td>
+    @if (Model.HasWithings) {
+        @:  <td class="tdata">Enabled</td>
+        @:  <td class="tdata">@Html.ActionLink("Disable", "Withings", "Home")</td>
+    }
+    else {
+        @:  <td class="tdata">Disabled</td>
+        @:  <td class="tdata">@Html.ActionLink("Activate", "Withings", "Home")</td>
+    }
+  </tr>
+
+</table> 
+    <a href="" id="newdevice">Add A Device</a>
+
+</div>
+

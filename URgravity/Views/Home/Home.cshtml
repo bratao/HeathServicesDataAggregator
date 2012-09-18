@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div id="homegallery" class="svwp">
+    <img id="rotatingpic"  />
+    <div id="gallerytext">
+<div id="galleryp"><span class="site-title"><a href="">Ur Gravity</a></span><br /><p>A personalized wellness management application that integrates all your devices and motivates you to achieve your goals</p></div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    var myPics = new Array("/Images/fitshadows.jpg", "/Images/healthfood.jpg");
+
+    //rotating slideshow using  pic array
+    var thisAd = 0;
+    function rotate() {
+        thisAd++;
+        if (thisAd == myPics.length) {
+            thisAd = 0;
+            document.getElementById("gallerytext").innerHTML = '<div id="galleryp"><span class="site-title"><a href="" class="gala">Ur Gravity</a></span><br /><p class="gallerynote">A personalized wellness management application that integrates all your devices and motivates you to achieve your goals</p></div>';
+
+        } else {
+            document.getElementById("gallerytext").innerHTML = '<div id="galleryp"><span class="site-title"><a href="" class="gala">Ur Gravity</a></span><br /><p class="gallerynote">helps you achieve your goals and improve your wellness by automatically unifying health and fitness data from all your devices.</p></div>';
+        }
+        document.getElementById("rotatingpic").src = myPics[thisAd];
+        setTimeout(rotate, 3 * 1000);
+
+
+    }
+
+    window.onload = rotate();
+</script>

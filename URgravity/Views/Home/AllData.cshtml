@@ -1,0 +1,41 @@
+﻿@model URgravity.Models.User
+@{
+    ViewBag.Title = "All Devices";
+}
+
+<div id="urinfo">
+    <div>
+        Calories Graph: </br>
+        <img src="@Model.ImageCaloriesUrl" alt="" />
+    </div>
+    <div>
+        Fat Free Mass Graph: </br>
+        <img src="@Model.ImageFatFreeMassUrl" alt="" />
+    </div>
+        <div>
+        Fat Mass Weight Graph: </br>
+        <img src="@Model.ImageFatMassWeightUrl" alt="" />
+    </div>
+        <div>
+        Fat Ration Graph: </br>
+        <img src="@Model.ImageFatRationUrl" alt="" />
+    </div>
+        <div>
+        Minutes As Sleep Graph: </br>
+        <img src="@Model.ImageMinutesAsSleepUrl" alt="" />
+    </div>
+        <div>
+        Total Floors Climbled Graph: </br>
+        <img src="@Model.ImageTotalFloorsClimbledUrl" alt="" />
+    </div>
+
+        <div>
+        Total Number Of Steps Graph: </br>
+        <img src="@Model.ImageTotalNumberOfStepsUrl" alt="" />
+    </div>
+
+        <div>
+        Weight Graph: </br>
+        <img src="@Model.ImageWeightUrl" alt="" />
+    </div>
+</div>

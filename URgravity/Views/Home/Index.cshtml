@@ -1,0 +1,137 @@
+﻿@model URgravity.Models.User
+@{
+    ViewBag.Title = "Home Page";
+}
+<script src="~/js/highcharts.js"></script>
+<script src="~/js/modules/exporting.js"></script>
+		<script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+
+
+        chart = new Highcharts.Chart({
+            credits : {
+                enabled : false
+            },
+              chart: {
+                renderTo: 'container',
+                zoomType: 'xy'
+            },
+            title: {
+                text: 'Progress'
+            },
+            subtitle: {
+                text: 'Source: FitBit; Withings'
+            },
+            xAxis: [{
+                categories: [@Html.Raw(ViewBag.CaloriesDates)]
+            }],
+            yAxis: [{ // Primary yAxis
+                startOnTick: false,
+                labels: {
+                    formatter: function() {
+                        return this.value +' Cal';
+                    },
+                    style: {
+                        color: '#89A54E'
+                    }
+                },
+                title: {
+                    text: 'Calories burn',
+                    style: {
+                        color: '#89A54E'
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    startOnTick: false,
+                    text: 'Weight',
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value +' pounds';
+                    },
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.x +': '+ this.y +
+                        (this.series.name == 'Weight' ? ' pounds' : ' Cal');
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: '#FFFFFF'
+            },
+            series: [{
+                name: 'Weight',
+                color: '#4572A7',
+                type: 'column',
+                yAxis: 1,
+                data: [@ViewBag.Weight]
+    
+            }, {
+                name: 'Calories Spend',
+                color: '#89A54E',
+                type: 'spline',
+                data: [@ViewBag.Calories]
+            }]
+        });
+
+        chart.yAxis[0].setExtremes(500, 3500);
+        chart.yAxis[1].setExtremes(205, 219);
+
+    }
+
+    );
+    
+});
+		</script>
+
+
+
+
+<div id="profilebar">
+     <a href="~/Views/Home/Index" id="profileimg"><img src="@Model.Avatar" width="200" /></a>
+    <p><b>@Model.FullName</b></p>
+    <p>@Model.City, @Model.State</p>
+    <h3>Today's Stats</h3>
+    <p>Calories Burned: @Model.ActualCalories</p>
+    <p>Steps Taken: @Model.ActualTotalNumberOfSteps</p>
+    <p>Minutes of Sleep Last Night: @Model.ActualMinutesAsSleep</p>
+    
+
+</div>
+<div id="urinfo">
+    <div id="urgoals" class="urinfogrid">
+        <h2>Primary Goal</h2>
+        <p>Reach Target Weight of 195lbs</p>
+        <p>Current Weight: @String.Format("{0:f0}", Model.ActualWeight) lbs</p> 
+    </div>
+    <div id="urchallenges" class="urinfogrid">
+        <h2>Challenges</h2>
+        <ul id="urchallengeul">
+            <li><a href="">Startup Weekend Activity Challenge</a></li>
+            <li><a href="">Ron's Cardio Challenge</a></li>
+        </ul>
+    </div>
+    <div id="urdaystats" class="urinfogrid">
+        <h2>Progress</h2>
+         <div id="container" style="max-width: 98%; height: 80%; margin: 0 auto"></div>
+
+</div>
+</div>

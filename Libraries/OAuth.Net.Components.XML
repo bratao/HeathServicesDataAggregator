@@ -1,0 +1,548 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OAuth.Net.Components</name>
+    </assembly>
+    <members>
+        <member name="M:OAuth.Net.Components.GuidTokenGenerator.CreateRequestToken(OAuth.Net.Common.IConsumer,OAuth.Net.Common.OAuthParameters)">
+            <summary>
+            Create a new request token
+            </summary>
+            <param name="consumer">The consumer for whom the token is to be created</param>
+            <param name="parameters">The parameters that were sent in the request that
+            created this token (both OAuth and additional parameters).</param>
+            <returns>A request token</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.GuidTokenGenerator.CreateAccessToken(OAuth.Net.Common.IConsumer,OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Create a new access token
+            </summary>
+            <param name="consumer">The consumer for whom the token is to be created</param>
+            <param name="requestToken">The request token being swapped for this access token</param>
+            <returns>An access token</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.HmacSha1SigningProvider.CheckRequest(System.Web.HttpRequest)">
+            <summary>
+            The HMAC-SHA1 signature method has no pre-conditions
+            </summary>
+            <param name="request">The HTTP request</param>
+            <returns>True</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.HmacSha1SigningProvider.ComputeSignature(System.String,System.String,System.String)">
+            <summary>
+            Computes the HMAC-SHA1 signature using <paramref name="signatureBase"/> as the text
+            and <paramref name="consumerSecret"/>&amp;<paramref name="tokenSecret"/> parameter 
+            encoded as the key.
+            </summary>
+            <param name="signatureBase">The signature base string (see OAuth Core 1.0 §9.1)</param>
+            <param name="consumerSecret">The consumer secret</param>
+            <param name="tokenSecret">The token secret, if present</param>
+            <returns>The computed signature</returns>
+        </member>
+        <member name="P:OAuth.Net.Components.HmacSha1SigningProvider.SignatureMethod">
+            <summary>
+            This signing provider provides HMAC-SHA1 signing
+            </summary>        
+        </member>
+        <member name="M:OAuth.Net.Components.PlaintextSigningProvider.#ctor(System.Boolean)">
+            <summary>
+            Creates a PlaintextSigningProvider, which may require secure connections.
+            </summary>
+            <param name="doRequireSecureConnection">Whether the signing provider
+            requires secure connections</param>
+        </member>
+        <member name="M:OAuth.Net.Components.PlaintextSigningProvider.CheckRequest(System.Web.HttpRequest)">
+            <summary>
+            The PLAINTEXT signature method may require a secure connection. This
+            is controlled by the requireSecureConnection configuration parameter.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OAuth.Net.Components.PlaintextSigningProvider.ComputeSignature(System.String,System.String,System.String)">
+            <summary>
+            Computes the PLAINTEXT signature as 
+            <paramref name="consumerSecret"/>&amp;<paramref name="tokenSecret"/>. The 
+            consumerSecret and tokenSecret are encoded ( see OAuth Editors Cut 1.0 § 3.3.4)
+            </summary>
+            <param name="signatureBase">The signature base string (see OAuth Core 1.0 §9.1)</param>
+            <param name="consumerSecret">The consumer secret</param>
+            <param name="tokenSecret">The token secret, if present</param>
+            <returns>The computed signature</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.PlaintextSigningProvider.CheckSignature(System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks the signature provided is the same as that which would be generated
+            for the consumerSecret, tokenSecret and signatureBase.
+            </summary>
+            <param name="signatureBase">The signature base string (see OAuth Core 1.0 §9.1)</param>
+            <param name="signature">The signature to check.</param>
+            <param name="consumerSecret">The consumer secret</param>
+            <param name="tokenSecret">The token secret, if present</param>
+            <returns></returns>
+        </member>
+        <member name="P:OAuth.Net.Components.PlaintextSigningProvider.SignatureMethod">
+            <summary>
+            This signing provider provides PLAINTEXT signing
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthAccessToken.Token">
+            <summary>
+            The token
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthAccessToken.Secret">
+            <summary>
+            The token secret
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthAccessToken.ConsumerKey">
+            <summary>
+            The key of the consumer this token was issued to
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthAccessToken.Status">
+            <summary>
+            The status of the token
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthAccessToken.Type">
+            <summary>
+            The type of token represented
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthAccessToken.RequestToken">
+            <summary>
+            The request token exchanged for this access token.
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Components.RsaSha1SigningProvider">
+            <summary>
+            This implementation of the RsaSha1SigningProvider expects a PFX X.509 certificate file
+            to be available.
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Components.RsaSha1SigningProvider.certificate">
+            <summary>
+            The default X509Certificate used by a consumer to sign a request,
+            or where only one X509Certificate is used (but why would they?) 
+            by the Service Provider to check the signature.
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Components.InMemoryConsumerStore">
+            <summary>
+            An thread-safe, in-memory implementation of IConsumerStore. Items are not persisted across
+            application restarts.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryConsumerStore.#ctor">
+            <summary>
+            Create a new in-memory consumer store.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryConsumerStore.#ctor(System.Collections.Generic.IList{OAuth.Net.Common.IConsumer})">
+            <summary>
+            Create a new in-memory consumer store with a set of pre-defined consumers
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryConsumerStore.Add(OAuth.Net.Common.IConsumer)">
+            <summary>
+            Adds the supplied consumer to the consumer store. If the consumer conflicts with a 
+            consumer already in the store, then <c>false</c> is returned.
+            </summary>
+            <param name="consumer">The consumer to store</param>
+            <returns><c>true</c>, iff the consumer was stored</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryConsumerStore.Contains(System.String)">
+            <summary>
+            Checks whether the store contains a consumer with the given
+            consumer key.
+            
+            This will return true even if the consumer has a status other than <c>Valid</c>.
+            </summary>
+            <param name="consumerKey">The consumer key</param>
+            <returns><c>true</c>, iff there is such a consumer 
+            in the store</returns>        
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryConsumerStore.GetByKey(System.String)">
+            <summary>
+            Gets the consumer registered with the given
+            consumer key.
+            </summary>
+            <param name="consumerKey">The consumer key</param>
+            <returns>The consumer registered with the consumer key if successful, or
+            <c>null</c> if there is no consumer registered with the supplied key</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryConsumerStore.Update(OAuth.Net.Common.IConsumer)">
+            <summary>
+            Updates the given consumer in the store.
+            </summary>
+            <param name="consumer">The consumer to update.</param>
+            <returns><c>true</c>, iff the consumer was successfully updated
+            in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryConsumerStore.Remove(OAuth.Net.Common.IConsumer)">
+            <summary>
+            Removes the specified consumer from the store.
+            </summary>
+            <param name="consumer">The consumer to remove</param>
+            <returns><c>true</c>, iff the consumer was successfully removed
+            from the store. This will return <c>false</c> if the consumer 
+            did not exist in the store.</returns>
+        </member>
+        <member name="P:OAuth.Net.Components.InMemoryConsumerStore.Consumers">
+            <summary>
+            Gets all the consumers in the store.
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.InMemoryConsumerStore.Count">
+            <summary>
+            The number of consumers held in the store
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthRequestToken.Token">
+            <summary>
+            The token
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthRequestToken.Secret">
+            <summary>
+            The token secret
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthRequestToken.ConsumerKey">
+            <summary>
+            The key of the consumer this token was issued to
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthRequestToken.Status">
+            <summary>
+            The status of the token
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthRequestToken.Type">
+            <summary>
+            Returns the type of token represented
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthRequestToken.AssociatedParameters">
+            <summary>
+            The parameters that were sent in the request that
+            created this token (both OAuth and additional parameters).
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthRequestToken.AuthenticatedUser">
+            <summary>
+            The identity of the user who has authenticated against this token
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthRequestToken.Roles">
+            <summary>
+            The roles of the user who has authenticated against this token
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Components.InMemoryTokenStore">
+            <summary>
+            An thread-safe, in-memory implementation of ITokenStore. Items are not persisted across
+            application restarts.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.#ctor">
+            <summary>
+            Create a new in-memory token store.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.Add(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Adds the supplied request token to the token store. If the token conflicts 
+            with a token already in the store, then <c>false</c> is
+            returned.
+            </summary>
+            <param name="token">The token to store</param>
+            <returns><c>true</c>, iff the token was stored</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.Add(OAuth.Net.Common.IAccessToken)">
+            <summary>
+            Adds the supplied access token to the token store. If the token conflicts 
+            with a token already in the store, then <c>false</c> is
+            returned.
+            </summary>
+            <param name="token">The token to store</param>
+            <returns><c>true</c>, iff the token was stored</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.Contains(System.String)">
+            <summary>
+            Checks whether the store contains ANY token with the given token 
+            string.
+            
+            This will return true even if the token has a status other than <c>Valid</c>.
+            </summary>
+            <param name="token">The token string</param>
+            <returns><c>true</c>, iff there is such a token in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.ContainsRequestToken(System.String)">
+            <summary>
+            Checks whether the store contains a request token with the given token 
+            string.
+            
+            This will return true even if the token has a status other than <c>Valid</c>.
+            </summary>
+            <param name="token">The token string</param>
+            <returns><c>true</c>, iff there is such a token
+            in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.ContainsAccessToken(System.String)">
+            <summary>
+            Checks whether the store contains an access token with the given token 
+            string.
+            
+            This will return true even if the token has a status other than <c>Valid</c>.
+            </summary>
+            <param name="token">The token string</param>
+            <returns><c>true</c>, iff there is such a token
+            in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.GetRequestToken(System.String)">
+            <summary>
+            Gets the request token with the given token from the store. Returns
+            <c>null</c> if there is no such token in the store.
+            </summary>
+            <param name="token">The token string</param>
+            <returns>The token matching the inputs, or <c>null</c> if
+            no such token exists in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.GetAccessToken(System.String)">
+            <summary>
+            Gets the request token with the given token from the store. Returns
+            <c>null</c> if there is no such token in the store.
+            </summary>
+            <param name="token">The token string</param>
+            <returns>The token matching the inputs, or <c>null</c> if
+            no such token exists in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.GetTokensByUser(System.Security.Principal.IIdentity)">
+            <summary>
+            Gets an array of request AND access tokens associated with a given
+            user.
+            
+            NB: In this implementation, this is an inefficient lookup as it requires
+            a scan of all the tokens in the store.
+            </summary>
+            <param name="user">The user</param>
+            <returns>A collection of request AND access tokens, or <c>null</c>
+            if no tokens are associated with the user</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.GetTokensByUser(System.Security.Principal.IIdentity,System.String)">
+            <summary>
+            Gets an array of request AND access tokens associated with a given
+            user for a given consumer.
+            </summary>
+            <param name="user">The user</param>
+            <param name="consumerKey">The consumer key</param>
+            <returns>A collection of request AND access tokens, or <c>null</c>
+            if no tokens are associated with the user</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.GetTokensByConsumer(System.String)">
+            <summary>
+            Gets an array of request AND access tokens associated with a given
+            consumer.
+            </summary>
+            <param name="consumerKey">The consumer key</param>
+            <returns>A collection of request AND access tokens, or <c>null</c>
+            if no tokens are associated with the consumer</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.Update(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Updates the the given request token in the store. 
+            </summary>
+            <param name="token">The token to update</param>
+            <returns><c>true</c>, iff the token was successfully updated
+            in the store.</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.Update(OAuth.Net.Common.IAccessToken)">
+            <summary>
+            Updates the the given access token in the store. 
+            </summary>
+            <param name="token">The token to update</param>
+            <returns><c>true</c>, iff the token was successfully updated
+            in the store.</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.Remove(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Removes the specified request token from the store.
+            </summary>
+            <param name="token">The token to remove</param>
+            <returns><c>true</c>, iff the token was successfully removed
+            from the store. This will return <c>false</c> if the token
+            did not exist in the store.</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.Remove(OAuth.Net.Common.IAccessToken)">
+            <summary>
+            Removes the specified access token from the store.
+            </summary>
+            <param name="token">The token to remove</param>
+            <returns><c>true</c>, iff the token was successfully removed
+            from the store. This will return <c>false</c> if the token
+            did not exist in the store.</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryTokenStore.GetByPredicate(System.Predicate{OAuth.Net.Common.IRequestToken},System.Predicate{OAuth.Net.Common.IAccessToken})">
+            <summary>
+            Gets an array of request AND access tokens that match the supplied predicates.
+            </summary>
+            <param name="requestPredicate">The predicate for request tokens</param>
+            <param name="accessPredicate">The predicate for access tokens</param>
+            <returns>An array of request AND access tokens, or <c>null</c>
+            if no tokens match the predicates</returns>
+        </member>
+        <member name="P:OAuth.Net.Components.InMemoryTokenStore.Tokens">
+            <summary>
+            Gets all the tokens in the store as an array.
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.InMemoryTokenStore.Count">
+            <summary>
+            The total number of tokens held in the store
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.InMemoryTokenStore.RequestTokens">
+            <summary>
+            Gets all the request tokens in the store as an array.
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.InMemoryTokenStore.CountRequestTokens">
+            <summary>
+            The number of request tokens held in the store
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.InMemoryTokenStore.AccessTokens">
+            <summary>
+            Gets all the access tokens in the store as an array.
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.InMemoryTokenStore.CountAccessTokens">
+            <summary>
+            The number of access tokens held in the store
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Components.InMemoryCallbackStore">
+            <summary>
+            Implements a thread safe in memory callback store.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryCallbackStore.AddCallback(OAuth.Net.Common.IRequestToken,System.Uri)">
+            <summary>
+            Appends a new callback to the store.
+            </summary>
+            <param name="token"></param>
+            <param name="callbackUri"></param>
+            <returns>true if the callbackUri is succesfully appended or false if there already exists a callbackUri for the token</returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryCallbackStore.ContainsCallback(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Determins if the store contains a callback for the supplied token.
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OAuth.Net.Components.InMemoryCallbackStore.RemoveCallback(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Removes the callbackUri from the store for the supplied token.
+            This method should be used to obtain the callback Uri when redirecting the user to ensure 
+            that it is removed from the store.
+            </summary>
+            <param name="token"></param>
+            <returns>The callback URI or null if none found.</returns>
+        </member>
+        <member name="T:OAuth.Net.Components.OAuthConsumer">
+            <summary>
+            A simple consumer which minimally implements IConsumer.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Components.OAuthConsumer.#ctor(System.String,System.String)">
+            <summary>
+            Creates a consumer with the given key and secret. The status will
+            be Unknown.
+            </summary>
+            <param name="key">The consumer key</param>
+            <param name="secret">The consumer secret</param>
+        </member>
+        <member name="M:OAuth.Net.Components.OAuthConsumer.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a consumer with the given key and secret. The status will
+            be Unknown.
+            </summary>
+            <param name="key">The consumer key</param>
+            <param name="secret">The consumer secret</param>
+            <param name="friendlyName">The consumer's friendly name</param>
+        </member>
+        <member name="M:OAuth.Net.Components.OAuthConsumer.#ctor(System.String,System.String,System.String,OAuth.Net.Common.ConsumerStatus)">
+            <summary>
+            Creates a consumer with the given key, secret and status.
+            </summary>
+            <param name="key">The consumer key</param>
+            <param name="secret">The consumer secret</param>
+            <param name="friendlyName">The consumer's friendly name</param>
+            <param name="status">The status of the consumer</param>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthConsumer.Key">
+            <summary>
+            The consumer key (this MUST be unique across all consumers)
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthConsumer.Secret">
+            <summary>
+            The consumer secret
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthConsumer.Status">
+            <summary>
+            The status of the consumer
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.OAuthConsumer.FriendlyName">
+            <summary>
+            The name of the consumer. Service providers may choose to expose
+            this to users.
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Components.InMemoryWindowedRequestIdValidator">
+            <summary>
+            An IRequestIdValidator which requires that timestamps fall within a time window of
+            the server's time. Requests with timestamps outside this window are rejected. Request
+            within this window must have nonces that are unique to that consumer key in the time
+            window. This cuts down the length of time that nonce have to be cached.
+            
+            The consumer key should be validated before the nonce and timestamp
+            to avoid potential resource attacks involving large numbers of requests
+            with large numbers of different consumer keys making the cache very large.
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Components.InMemoryWindowedRequestIdValidator.HalfWindow">
+            <summary>
+            The number of seconds +/- server time that a timestamp must 
+            fall within to be valid
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Components.MD5HashVerificationProvider">
+            <summary>
+            Implements the Verification Provider by hashing the token with the consumer key.
+            The return verifier must equal this value.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Components.MD5HashVerificationProvider.Generate(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Generates a new Verification code for the given token.
+            </summary>
+            <param name="token"></param>        
+            <returns></returns>
+        </member>
+        <member name="M:OAuth.Net.Components.MD5HashVerificationProvider.IsValid(OAuth.Net.Common.IRequestToken,System.String)">
+            <summary>
+            Checks to see if the provided verifier is valid for this Request token.
+            </summary>
+            <param name="token"></param>        
+            <param name="verifier"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

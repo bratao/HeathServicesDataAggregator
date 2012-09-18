@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p id="site-title">@Html.ActionLink("Ur Gravity", "Home", "Home")</p>
+                    <p class="catchphrase">Your Health and Fitness... <em>Optimized</em></p>
+                </div>
+               
+                    <section id="login">
+                        <span id="sociallinks">
+                        <a href="http://www.twitter.com/urgravity" class="sociallinksa"><img src="~/Images/twitter-logo.png" height="30" width="30" /></a>
+                        <a href="http://www.facebook.com/urgravity" class="sociallinksa"><img src="~/Images/fblogo.jpg" height="30" width="30" /></a>
+                        </span>
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                 <div class="float-right">
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Challenges", "Challenges", "Home")</li>
+                            <li>@Html.ActionLink("Account", "Manage", "Account")</li> 
+                            <li>@Html.ActionLink("Devices", "Devices", "Home")</li> 
+                            <li>@Html.ActionLink("All Data", "AllData", "Home")</li> 
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            <div id="linebreak"></div>
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="footer-wrapper">
+                <div>
+                    <p>&copy; URgravity - @DateTime.Now.Year</p>
+                    <p>Startup Weekend Seattle 2012</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+
+</html>

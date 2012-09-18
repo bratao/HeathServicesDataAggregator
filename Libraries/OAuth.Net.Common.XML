@@ -1,0 +1,1930 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OAuth.Net.Common</name>
+    </assembly>
+    <members>
+        <member name="P:OAuth.Net.Common.IToken.Token">
+            <summary>
+            The token (this MUST be unique across all tokens for all consumers)
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IToken.Secret">
+            <summary>
+            The token secret
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IToken.ConsumerKey">
+            <summary>
+            The key of the consumer this token was issued to
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IToken.Type">
+            <summary>
+            The type of Token represented.
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.Constants">
+            <summary>
+            Constants used by OAuth.Net libraries
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.OAuthOutOfBandCallback">
+            <summary>
+            The value that identifies the callback after authorizationis OOB.
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.HttpPostUrlEncodedContentType">
+            <summary>
+            The HTTP content-type for url encoded parameters in the POST body
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.AuthorizationHeaderParameter">
+            <summary>
+            The Authorization HTTP header parameter
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.WwwAuthenticateHeaderParameter">
+            <summary>
+            The WWW-Authenticate HTTP header parameter
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.RealmParameter">
+            <summary>
+            The Authorization realm parameter
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.OAuthAuthScheme">
+            <summary>
+            The OAuth RFC-2617 auth-scheme
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.OAuthParameterPrefix">
+            <summary>
+            The oauth_ prefix for parameters
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.ConsumerKeyParameter">
+            <summary>
+            The parameter for the OAuth consumer key
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.SignatureMethodParameter">
+            <summary>
+            The parameter for the OAuth signature method
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.SignatureParameter">
+            <summary>
+            The parameter for the OAuth signature
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.TimestampParameter">
+            <summary>
+            The parameter for the OAuth timestamp
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.NonceParameter">
+            <summary>
+            The parameter for the OAuth nonce
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.VersionParameter">
+            <summary>
+            The parameter for the OAuth version
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.VerifierParameter">
+            <summary>
+            The parameter for the OAuth verifier
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.TokenParameter">
+            <summary>
+            The parameter for the OAuth token
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.TokenSecretParameter">
+            <summary>
+            The parameter for the OAuth token secret
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.CallbackParameter">
+            <summary>
+            The parameter for the OAuth callback
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.CallbackConfirmedParameter">
+            <summary>
+            The parameter for the OAuth callback confirmed
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.Version1_0">
+            <summary>
+            The OAuth version parameter value for OAuth Core 1.0
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.SigningProviderIdPrefix">
+            <summary>
+            The Windsor configuration ID prefix for signing providers
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.HttpPostUrlEncodedContentTypeRegex">
+            <summary>
+            Test for HTTP content-type for url encoded parameters in the POST 
+            body, which may be followed by a semicolon and an encoding.
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.OAuthCredentialsRegex">
+            <summary>
+            The OAuth credentials prefix for the Authorization HTTP header
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.StringEscapeSequence">
+            <summary>
+            String escape sequences
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.Rfc3986EscapeSequence">
+            <summary>
+            RFC 3986 percent encoding escape sequence
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.Constants.ReservedParameterNames">
+            <summary>
+            Parameter names that are reserved by OAuth
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.OAuthRequestExceptionSources">
+            <summary>
+            <see cref="T:OAuth.Net.Common.OAuthRequestException">OAuthRequestExceptions</see> may be thrown locally 
+            or be reconstructed and rethrown from a HTTP response.
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">
+            <summary>
+            <c>local</c>:
+            The exception was thrown locally.
+            </summary>
+            
+            <value>local</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionSources.Remote">
+            <summary>
+            <c>remote</c>:
+            The exception was thrown remotely and reconstructed and rethrown
+            here.
+            </summary>
+            
+            <value>remote</value>
+        </member>
+        <member name="T:OAuth.Net.Common.OAuthException">
+            <summary>
+            OAuthException is the base type for all exceptions thrown by OAuth.
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.IConsumer">
+            <summary>
+            A consumer
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IConsumer.Key">
+            <summary>
+            The consumer key (this MUST be unique across all consumers)
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IConsumer.Secret">
+            <summary>
+            The consumer secret
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IConsumer.Status">
+            <summary>
+            The status of the consumer
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IConsumer.FriendlyName">
+            <summary>
+            The name of the consumer. Service providers may choose to expose
+            this to users.
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.ICallbackStore">
+            <summary>
+            When a consumer obtains a request token they must provide an absolute URL to which the Service Provider will redirect the User 
+            back when Obtaining the User Authorization step is completed.  The CallbackStore provides the mechanism to 
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.ICallbackStore.AddCallback(OAuth.Net.Common.IRequestToken,System.Uri)">
+            <summary>
+            Appends a new callback to the store.
+            </summary>
+            <param name="token"></param>
+            <param name="callbackUri"></param>
+            <returns>true if the callbackUri is succesfully appended or false if there already exists a callbackUri for the token</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ICallbackStore.ContainsCallback(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Determins if the store contains a callback for the supplied token.
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ICallbackStore.RemoveCallback(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Removes the callbackUri from the store for the supplied token.
+            This method should be used to obtain the callback Uri when redirecting the user to ensure 
+            that it is removed from the store.
+            </summary>
+            <param name="token"></param>
+            <returns>The callback URI or null if none found.</returns>
+        </member>
+        <member name="T:OAuth.Net.Common.OAuthResource">
+            <summary>
+            An OAuthProtectedResponse is a facade for HttpWebResponse. Its response stream
+            is read into a MemoryStream which can be replayed.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthResource.#ctor(System.Net.HttpWebResponse)">
+            <summary>
+            Creates an OAuthProtectedResponse from a HttpWebResponse.
+            </summary>
+            <param name="response">HttpWebResponse</param>
+        </member>
+        <member name="M:OAuth.Net.Common.GuidHelper.CreateGuid">
+            <summary>
+            Creates a Guid which is guaranteed not to equal the empty Guid.
+            </summary>
+            <returns>A new non-empty Guid</returns>
+        </member>
+        <member name="T:OAuth.Net.Common.OAuthRequestExceptionProblemTypes">
+            <summary>
+            The problem types used by the <a href="http://wiki.oauth.net/ProblemReporting">
+            Problem Reporting extension</a>. These are the legal values of the 
+            <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">Problem</see> property of 
+            <see cref="T:OAuth.Net.Common.OAuthRequestException">OAuthRequestException</see>.
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.VersionRejected">
+            <summary>
+            <c>version_rejected</c>: 
+            The <see cref="F:OAuth.Net.Common.Constants.VersionParameter">oauth_version</see> isn't 
+            supported by the Service Provider.
+            </summary>
+            
+            <value>version_rejected</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ParameterAbsent">
+            <summary>
+            <c>parameter_absent</c>:
+            A required parameter wasn't received.
+            </summary>
+            
+            <value>parameter_absent</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ParameterRejected">
+            <summary>
+            <c>parameter_rejected</c>:
+            An unexpected parameter was received. 
+            </summary>
+            
+            <value>parameter_rejected</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TimestampRefused">
+            <summary>
+            <c>timestamp_refused</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.TimestampParameter">oauth_timestamp</see> value is 
+            unacceptable to the Service Provider.
+            </summary>
+            
+            <value>timestamp_refused</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.NonceUsed">
+            <summary>
+            <c>nonce_used</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.NonceParameter">oauth_nonce</see> value was used in 
+            a previous request, and consequently can't be used now.
+            </summary>
+            
+            <value>nonce_used</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.SignatureMethodRejected">
+            <summary>
+            <c>signature_method_rejected</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.SignatureMethodParameter">oauth_signature_method</see> 
+            is unacceptable to the Service Provider.
+            </summary>
+            
+            <value>signature_method_rejected</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.SignatureInvalid">
+            <summary>
+            <c>signature_invalid</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.SignatureParameter">oauth_signature</see> is invalid. 
+            That is, it doesn't match the signature computed by the Service Provider.
+            </summary>
+            
+            <value>signature_invalid</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ConsumerKeyUnknown">
+            <summary>
+            <c>consumer_key_unknown</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.ConsumerKeyParameter">oauth_consumer_key</see> is 
+            unknown to the Service Provider.
+            </summary>
+            
+            <value>consumer_key_unknown</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ConsumerKeyRejected">
+            <summary>
+            <c>consumer_key_rejected</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.ConsumerKeyParameter">oauth_consumer_key</see> is 
+            permanently unacceptable to the Service Provider. For example, the 
+            Consumer may be black listed.
+            </summary>
+            
+            <value>consumer_key_rejected</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ConsumerKeyRefused">
+            <summary>
+            <c>consumer_key_refused</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.ConsumerKeyParameter">oauth_consumer_key</see> is 
+            temporarily unacceptable to the Service Provider. For example, the Service 
+            Provider may be throttling the Consumer.
+            </summary>
+            
+            <value>consumer_key_refused</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TokenUsed">
+            <summary>
+            <c>token_used</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.TokenParameter">oauth_token</see> has been consumed. 
+            That is, it can't be used any more because it has already been used in a 
+            previous request or requests.
+            </summary>
+            
+            <value>token_used</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TokenExpired">
+            <summary>
+            <c>token_expired</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.TokenParameter">oauth_token</see> has expired. That 
+            is, it was issued too long ago to be used now.
+            </summary>
+            
+            <value>token_expired</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TokenRevoked">
+            <summary>
+            <c>token_revoked</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.TokenParameter">oauth_token</see> has been revoked. That 
+            is, the Service Provider has unilaterally decided it will never accept this 
+            token.
+            </summary>
+            
+            <value>token_revoked</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TokenRejected">
+            <summary>
+            <c>token_rejected</c>:
+            The <see cref="F:OAuth.Net.Common.Constants.TokenParameter">oauth_token</see> is unacceptable to the 
+            Service Provider. The reason is unspecified. It might mean that the token 
+            was never issued, or consumed or expired and then subsequently forgotten by 
+            the Service Provider.
+            </summary>
+            
+            <value>token_rejected</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.PermissionUnknown">
+            <summary>
+            <c>permission_unknown</c>:
+            The User hasn't decided whether to permit this Consumer to access Protected 
+            Resources. Usually happens when the Consumer requests Access Token before the 
+            user completes authorization process.
+            </summary>
+            
+            <value>permission_unknown</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.PermissionDenied">
+            <summary>
+            <c>permission_denied</c>:
+            The User refused to permit this Consumer to access Protected Resources.
+            </summary>
+            
+            <value>permission_denied</value>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenGenerator.CreateRequestToken(OAuth.Net.Common.IConsumer,OAuth.Net.Common.OAuthParameters)">
+            <summary>
+            Create a new request token
+            </summary>
+            <param name="consumer">The consumer for whom the token is to be created</param>
+            <param name="parameters">The parameters that were sent in the request that
+            created this token (both OAuth and additional parameters).</param>
+            <returns>A request token</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenGenerator.CreateAccessToken(OAuth.Net.Common.IConsumer,OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Create a new access token
+            </summary>
+            <param name="consumer">The consumer for whom the token is to be created</param>
+            <param name="requestToken">The request token being swapped for this access token</param>
+            <returns>An access token</returns>
+        </member>
+        <member name="P:OAuth.Net.Common.RequestId.Timestamp">
+            <summary>
+            The unix timestamp (number of seconds since Unix epoch)
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.RequestId.Nonce">
+            <summary>
+            The nonce
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.RequestId.ConsumerKey">
+            <summary>
+            The consumer key
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.RequestId.Token">
+            <summary>
+            The consumer key
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IIssuedToken.Status">
+            <summary>
+            The status of the token
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IAccessToken.RequestToken">
+            <summary>
+            The request token exchanged for this access token.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthToken.#ctor(OAuth.Net.Common.TokenType,System.String,System.String,OAuth.Net.Common.IConsumer)">
+            <summary>
+            Create a simple token received from a service provider.
+            </summary>
+            <param name="type">Token type</param>
+            <param name="token">Token</param>
+            <param name="secret">Secret</param>
+            <param name="consumer">Consumer</param>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthToken.#ctor(OAuth.Net.Common.TokenType,System.String,System.String,System.String)">
+            <summary>
+            Create a simple token received from a service provider.
+            </summary>
+            <param name="type">Token type</param>
+            <param name="token">Token</param>
+            <param name="secret">Secret</param>
+            <param name="consumerKey">Consumer key</param>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthToken.Serialize(OAuth.Net.Common.OAuthToken)">
+            <summary>
+            Serializes a SimpleToken to a string representation.
+            </summary>
+            <param name="token">Token</param>
+            <returns>String serialization of the token</returns>
+            <exception cref="T:System.ArgumentNullException">if <paramref name="token"/> is <c>null</c></exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthToken.Deserialize(System.String)">
+            <summary>
+            De-serializes a SimpleToken from its serialized form.
+            </summary>
+            <param name="serializedForm">Serialized token</param>
+            <returns>Token</returns>
+            <exception cref="T:System.ArgumentException">
+            if <paramref name="serializedForm"/> is null or empty
+            </exception>
+            <exception cref="T:System.FormatException">
+            if <paramref name="serializedForm"/> is not a valid serialized form
+            </exception>
+        </member>
+        <member name="P:OAuth.Net.Common.OAuthToken.Type">
+            <summary>
+            The token type
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.OAuthToken.Token">
+            <summary>
+            The token 
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.OAuthToken.Secret">
+            <summary>
+            The token secret
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.OAuthToken.ConsumerKey">
+            <summary>
+            The key of the consumer this token was issued to
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.ISigningProvider">
+            <summary>
+            A signing provider provides signature computation for a given
+            algorithm (the signature method).
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.ISigningProvider.CheckRequest(System.Web.HttpRequest)">
+            <summary>
+            Checks the HTTP request satisfies any pre-conditions for the signing
+            provider. For example, the signing provider may require a secure HTTP
+            connection.
+            </summary>
+            <param name="request">The HTTP request</param>
+            <returns>True iff the request satisfies all pre-conditions</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ISigningProvider.ComputeSignature(System.String,System.String,System.String)">
+            <summary>
+            Computes a signature. The implementation will vary from provider to 
+            provider.
+            </summary>
+            <param name="signatureBase">The signature base string (see OAuth Core 1.0 §9.1)</param>
+            <param name="consumerSecret">The consumer secret</param>
+            <param name="tokenSecret">The token secret, if present</param>
+            <returns>A signature for the given signature base, consumer secret and token secret</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ISigningProvider.CheckSignature(System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks the signature is a valid for the provided signatureBase.  The implementation will vary from provider to
+            provider.
+            </summary>
+            <param name="signatureBase">The signature base string (see OAuth Core 1.0 §9.1)</param>
+            <param name="signature">The signature to compare</param>
+            <param name="consumerSecret">The consumer secret</param>
+            <param name="tokenSecret">he token secret, if present</param>
+            <returns>true if the signature provided is valid.</returns>
+        </member>
+        <member name="P:OAuth.Net.Common.ISigningProvider.SignatureMethod">
+            <summary>
+            The signature method that this signing provider provides
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.UnixTime">
+            <summary>
+            Class for converting to and from Unix (POSIX) time. Unix time is the number of seconds
+            since the Unix epoch, 1970-1-1 0:0:00.0.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.UnixTime.ToUnixTime(System.DateTime)">
+            <summary>
+            Converts a DateTime to unix time. Unix time is the number of seconds 
+            between 1970-1-1 0:0:0.0 (unix epoch) and the time (UTC).
+            </summary>
+            <param name="time">The date time to convert to unix time</param>
+            <returns>The number of seconds between Unix epoch and the input time</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.UnixTime.FromUnixTime(System.Int64)">
+            <summary>
+            Converts a long representation of a unix time into a DateTime. Unix time is 
+            the number of seconds between 1970-1-1 0:0:0.0 (unix epoch) and the time (UTC).
+            </summary>
+            <param name="unixTime">The number of seconds since Unix epoch (must be >= 0)</param>
+            <returns>A DateTime object representing the unix time</returns>
+        </member>
+        <member name="P:OAuth.Net.Common.IRequestToken.AssociatedParameters">
+            <summary>
+            The parameters that were sent in the request that
+            created this token (both OAuth and additional parameters).
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IRequestToken.AuthenticatedUser">
+            <summary>
+            The identity of the user who has authenticated against this token
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IRequestToken.Roles">
+            <summary>
+            The roles of the user who has authenticated against this token
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.IRequestIdValidator">
+            <summary>
+            Stores information about previous requests to validate future timestamps
+            and nonces.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.IRequestIdValidator.CheckRequest(System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks that the timestamp is valid and that the nonce has not been used 
+            before by the same consumer, according to the timestamp/nonce policies 
+            of the implementation.
+            
+            Throws an OAuthRequestException if there is a problem with the nonce or timestamp.
+            </summary>
+            <param name="nonce">The nonce</param>
+            <param name="timestampValue">The timestamp</param>
+            <param name="consumerKey">The consumer key</param>
+            <param name="requestToken">The request token</param>
+            <returns>A RequestId (formed of the timestamp, nonce and consumer key)
+            if the request is ok</returns>
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException"/>
+        </member>
+        <member name="T:OAuth.Net.Common.INonceProvider">
+            <summary>
+            A nonce is a random string, uniquely generated for each request
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.INonceProvider.GenerateNonce(System.Int32)">
+            <summary>
+            Generates a nonce that is unique for a particular timestamp.
+            </summary>
+            <param name="timestamp">POSIX timestamp</param>
+            <returns>A nonce</returns>
+        </member>
+        <member name="T:OAuth.Net.Common.Rfc3986">
+            <summary>
+            Performs RFC 3986 encoding and decoding.
+            http://www.apps.ietf.org/rfc/rfc3986.html
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.Rfc3986.EncodeAndJoin(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Join the name-value pairs into a string seperated with ampersands.
+            Each name and value is first RFC 3986 encoded and values are separated
+            from names with equal signs.
+            </summary>
+            <param name="values">The name value collection to encode and join</param>
+            <returns>An RFC 3986 compliant string</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.Rfc3986.SplitAndDecode(System.String)">
+            <summary>
+            Splits a ampersand-separated list of key-value pairs, decodes the keys and 
+            values, and adds them to a NameValueCollection. Keys and values are separated
+            by equals signs.
+            </summary>
+            <param name="input">The key-value pair list</param>
+            <returns>A name value collection, which may be empty.</returns>
+            <exception cref="T:System.FormatException">
+            If the string is not a series of key-value pairs separated by ampersands,
+            or if one of the keys is null or empty, or if one of the keys or values is 
+            not properly encoded.
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.Rfc3986.Encode(System.String)">
+            <summary>
+            Perform RFC 3986 Percent-encoding on a string.
+            </summary>
+            <param name="input">The input string</param>
+            <returns>The RFC 3986 Percent-encoded string</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.Rfc3986.Decode(System.String)">
+            <summary>
+            Perform RFC 3986 Percent-decoding on a string.
+            </summary>
+            <param name="input">The input RFC 3986 Percent-encoded string</param>
+            <returns>The decoded string</returns>
+        </member>
+        <member name="T:OAuth.Net.Common.ConsumerStatus">
+            <summary>
+            The status of a consumer
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.ConsumerStatus.Unknown">
+            <summary>
+            The status is unknown
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.ConsumerStatus.Valid">
+            <summary>
+            The consumer is valid
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.ConsumerStatus.TemporarilyDisabled">
+            <summary>
+            The consumer is temporarily disabled. For example, the consumer may be being throttled
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.ConsumerStatus.PermanentlyDisabled">
+            <summary>
+            The consumer is permanently disabled.
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.IVerificationProvider">
+            <summary>
+            A verification code that is generated when the user has authenticated the Request Token. This code
+            is provided in the callback Uri if the user is in-bound or must be displayed to the user to enter
+            at the consumer to inform them that authorization is complete.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.IVerificationProvider.Generate(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Generates a verifier code for the provided token.  The provider must ensure
+            that this token can be re-generated in a non-guessable manner or store
+            the generated verification in a store.
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OAuth.Net.Common.IVerificationProvider.IsValid(OAuth.Net.Common.IRequestToken,System.String)">
+            <summary>
+            Determines if the verifier is valid for the Request Token provided.
+            </summary>
+            <param name="token"></param>
+            <param name="verifier"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OAuth.Net.Common.TokenStatus">
+            <summary>
+            The status of a token
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.TokenStatus.Unknown">
+            <summary>
+            The status is unknown
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.TokenStatus.Unauthorized">
+            <summary>
+            The token is valid but unauthorized
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.TokenStatus.Authorized">
+            <summary>
+            The token is valid and authorized
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.TokenStatus.Used">
+            <summary>
+            The token has been used and cannot be used again
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.TokenStatus.Expired">
+            <summary>
+            The token has expired. It was issued too long ago to be used now.
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.TokenStatus.Revoked">
+            <summary>
+            The token has been revoked.
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.OAuthRequestExceptionParameters">
+            <summary>
+            The parameters used by the <a href="http://wiki.oauth.net/ProblemReporting">
+            Problem Reporting extension</a>. These are used by 
+            <see cref="T:OAuth.Net.Common.OAuthRequestException">OAuthRequestException</see>.
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionParameters.Problem">
+            <summary>
+            <c>oauth_problem</c>:
+            Parameter for the problem type.
+            </summary>
+            
+            <remarks>
+            The value must be one of the predefined problem types, although a 
+            Consumer SHOULD be prepared to receive other values, from a Service 
+            Provider that implements a future version of problem reporting.
+            </remarks>
+            
+            <value>oauth_problem</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionParameters.AcceptableVersions">
+            <summary>
+            <c>oauth_acceptable_versions</c>:
+            Parameter for the range of acceptable versions. 
+            </summary>
+            
+            <remarks>
+            Applicable to the <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.VersionRejected">version_rejected</see> 
+            problem type.
+            </remarks>
+            
+            <value>oauth_acceptable_versions</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionParameters.AcceptableTimestamps">
+            <summary>
+            <c>oauth_acceptable_timestamps</c>:
+            Parameter for the range of acceptable timestamps.
+            </summary>
+            
+            <remarks>
+            Applicable to the <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TimestampRefused">timestamp_refused</see>
+            problem type.
+            </remarks>
+            
+            <value>oauth_acceptable_timestamps</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionParameters.ParametersAbsent">
+            <summary>
+            <c>oauth_parameters_absent</c>:
+            Parameter for the OAuth parameters that were absent from the request.
+            </summary>
+            
+            <remarks>
+            Applicable to the <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ParameterAbsent">parameter_absent</see>
+            problem type.
+            </remarks>
+            
+            <value>oauth_parameters_absent</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionParameters.ParametersRejected">
+            <summary>
+            <c>oauth_parameters_rejected</c>:
+            Parameter for the OAuth parameters whose values were rejected.
+            </summary>
+            
+            <remarks>
+            Applicable to the <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ParameterRejected">parameter_rejected</see>
+            problem type.
+            </remarks>
+            
+            <value>oauth_parameters_rejected</value>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthRequestExceptionParameters.ProblemAdvice">
+            <summary>
+            <c>oauth_problem_advice</c>:
+            Parameter for advice about the problem to be displayed to the user.
+            </summary>
+            
+            <remarks>
+            It SHOULD describe the problem in a way that's meaningful to the 
+            User, and suggest how to resolve the problem. The Consumer MUST NOT 
+            interpret it as HTML or any other markup language; all the characters 
+            MUST be displayed to the user. To indicate a line break, the single 
+            character LF (Unicode U+000A) MUST be used.
+            </remarks>
+            
+            <value>oauth_problem_advice</value>
+        </member>
+        <member name="M:OAuth.Net.Common.ResultInfo`1.op_True(OAuth.Net.Common.ResultInfo{`0})">
+            <summary>
+            Checks whether the result info evaluates to true.
+            </summary>
+            <param name="result">The result info</param>
+            <returns>True, iff result.Success == true</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ResultInfo`1.op_False(OAuth.Net.Common.ResultInfo{`0})">
+            <summary>
+            Checks whether the result info evaluates to false.
+            </summary>
+            <param name="result">The result info</param>
+            <returns>True, iff result.Success == false</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ResultInfo`1.op_LogicalNot(OAuth.Net.Common.ResultInfo{`0})">
+            <summary>
+            Logical negation operator. Returns a result info with
+            the Success value flipped.
+            </summary>
+            <param name="result">The result info</param>
+            <returns>A new result info with the same data but with the
+            success flag flipped</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ResultInfo`1.op_BitwiseAnd(OAuth.Net.Common.ResultInfo{`0},OAuth.Net.Common.ResultInfo{`0})">
+            <summary>
+            Logical and operator. Returns a result info with the Success
+            value set to left.Success and right.Success and the data set to default(T)
+            </summary>
+            <param name="left">The left result info</param>
+            <param name="right">The right result info</param>
+            <returns>A new result info with the Success value set to the result
+            of left.Success and right.Success, and the data set to default(T)</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ResultInfo`1.op_BitwiseOr(OAuth.Net.Common.ResultInfo{`0},OAuth.Net.Common.ResultInfo{`0})">
+            <summary>
+            Logical or operator. Returns a result info with the Success
+            value set to left.Success || right.Success and the data set to default(T)
+            </summary>
+            <param name="left">The left result info</param>
+            <param name="right">The right result info</param>
+            <returns>A new result info with the Success value set to the result
+            of left.Success || right.Success, and the data set to default(T)</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ResultInfo`1.op_Equality(OAuth.Net.Common.ResultInfo{`0},OAuth.Net.Common.ResultInfo{`0})">
+            <summary>
+            Logical equality operator. Returns a boolean value indicating whether
+            the left and right Success values are the same. The data is ignored for
+            the comparison.
+            </summary>
+            <param name="left">The left result info</param>
+            <param name="right">The right result info</param>
+            <returns>True, iff left.Success == right.Success</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ResultInfo`1.op_Inequality(OAuth.Net.Common.ResultInfo{`0},OAuth.Net.Common.ResultInfo{`0})">
+            <summary>
+            Logical inequality operator. Returns a boolean value indicating whether
+            the left and right Success values are different. The data is ignored for
+            the comparison.
+            </summary>
+            <param name="left">The left result info</param>
+            <param name="right">The right result info</param>
+            <returns>True, iff left.Success != right.Success</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ResultInfo`1.op_Implicit(OAuth.Net.Common.ResultInfo{`0})~`0">
+            <summary>
+            Implicit conversion to type T.
+            </summary>
+            <param name="result">The result info</param>
+            <returns>The data stored in the result info</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.IConsumerStore.Add(OAuth.Net.Common.IConsumer)">
+            <summary>
+            Adds the supplied consumer to the consumer store. If the consumer conflicts with a 
+            consumer already in the store, then <c>false</c> is returned.
+            </summary>
+            <param name="consumer">The consumer to store</param>
+            <returns><c>true</c>, iff the consumer was stored</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.IConsumerStore.Contains(System.String)">
+            <summary>
+            Checks whether the store contains a consumer with the given
+            consumer key.
+            
+            This will return true even if the consumer has a status other than <c>Valid</c>.
+            </summary>
+            <param name="consumerKey">The consumer key</param>
+            <returns><c>true</c>, iff there is such a consumer 
+            in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.IConsumerStore.GetByKey(System.String)">
+            <summary>
+            Gets the consumer registered with the given
+            consumer key.
+            </summary>
+            <param name="consumerKey">The consumer key</param>
+            <returns>The consumer registered with the consumer key if successful, or
+            <c>null</c> if there is no consumer registered with the supplied key</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.IConsumerStore.Update(OAuth.Net.Common.IConsumer)">
+            <summary>
+            Updates the given consumer in the store.
+            </summary>
+            <param name="consumer">The consumer to update.</param>
+            <returns><c>true</c>, iff the consumer was successfully updated
+            in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.IConsumerStore.Remove(OAuth.Net.Common.IConsumer)">
+            <summary>
+            Removes the specified consumer from the store.
+            </summary>
+            <param name="consumer">The consumer to remove</param>
+            <returns><c>true</c>, iff the consumer was successfully removed
+            from the store. This will return <c>false</c> if the consumer 
+            did not exist in the store.</returns>
+        </member>
+        <member name="P:OAuth.Net.Common.IConsumerStore.Consumers">
+            <summary>
+            Gets all the consumers in the store.
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.IConsumerStore.Count">
+            <summary>
+            The number of consumers held in the store
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.Add(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Adds the supplied request token to the token store. If the token conflicts 
+            with a token already in the store, then <c>false</c> is
+            returned.
+            </summary>
+            <param name="token">The token to store</param>
+            <returns><c>true</c>, iff the token was stored</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.Add(OAuth.Net.Common.IAccessToken)">
+            <summary>
+            Adds the supplied access token to the token store. If the token conflicts 
+            with a token already in the store, then <c>false</c> is
+            returned.
+            </summary>
+            <param name="token">The token to store</param>
+            <returns><c>true</c>, iff the token was stored</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.Contains(System.String)">
+            <summary>
+            Checks whether the store contains ANY token with the given token 
+            string.
+            
+            This will return true even if the token has a status other than <c>Valid</c>.
+            </summary>
+            <param name="token">The token string</param>
+            <returns><c>true</c>, iff there is such a token in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.ContainsRequestToken(System.String)">
+            <summary>
+            Checks whether the store contains a request token with the given token 
+            string.
+            
+            This will return true even if the token has a status other than <c>Valid</c>.
+            </summary>
+            <param name="token">The token string</param>
+            <returns><c>true</c>, iff there is such a token
+            in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.ContainsAccessToken(System.String)">
+            <summary>
+            Checks whether the store contains an access token with the given token 
+            string.
+            
+            This will return true even if the token has a status other than <c>Valid</c>.
+            </summary>
+            <param name="token">The token string</param>
+            <returns><c>true</c>, iff there is such a token
+            in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.GetRequestToken(System.String)">
+            <summary>
+            Gets the request token with the given token from the store. Returns
+            <c>null</c> if there is no such token in the store.
+            </summary>
+            <param name="token">The token string</param>
+            <returns>The token matching the inputs, or <c>null</c> if
+            no such token exists in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.GetAccessToken(System.String)">
+            <summary>
+            Gets the request token with the given token from the store. Returns
+            <c>null</c> if there is no such token in the store.
+            </summary>
+            <param name="token">The token string</param>
+            <returns>The token matching the inputs, or <c>null</c> if
+            no such token exists in the store</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.GetTokensByUser(System.Security.Principal.IIdentity)">
+            <summary>
+            Gets an array of request AND access tokens associated with a given
+            user.
+            </summary>
+            <param name="user">The user</param>
+            <returns>An array of request AND access tokens, or <c>null</c>
+            if no tokens are associated with the user</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.GetTokensByUser(System.Security.Principal.IIdentity,System.String)">
+            <summary>
+            Gets an array of request AND access tokens associated with a given
+            user for a given consumer.
+            </summary>
+            <param name="user">The user</param>
+            <param name="consumerKey">The consumer key</param>
+            <returns>An array of request AND access tokens, or <c>null</c>
+            if no tokens are associated with the user</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.GetTokensByConsumer(System.String)">
+            <summary>
+            Gets an array of request AND access tokens associated with a given
+            consumer.
+            </summary>
+            <param name="consumerKey">The consumer key</param>
+            <returns>An array of request AND access tokens, or <c>null</c>
+            if no tokens are associated with the consumer</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.Update(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Updates the the given request token in the store. 
+            </summary>
+            <param name="token">The token to update</param>
+            <returns><c>true</c>, iff the token was successfully updated
+            in the store.</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.Update(OAuth.Net.Common.IAccessToken)">
+            <summary>
+            Updates the the given access token in the store. 
+            </summary>
+            <param name="token">The token to update</param>
+            <returns><c>true</c>, iff the token was successfully updated
+            in the store.</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.Remove(OAuth.Net.Common.IRequestToken)">
+            <summary>
+            Removes the specified request token from the store.
+            </summary>
+            <param name="token">The token to remove</param>
+            <returns><c>true</c>, iff the token was successfully removed
+            from the store. This will return <c>false</c> if the token
+            did not exist in the store.</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.ITokenStore.Remove(OAuth.Net.Common.IAccessToken)">
+            <summary>
+            Removes the specified access token from the store.
+            </summary>
+            <param name="token">The token to remove</param>
+            <returns><c>true</c>, iff the token was successfully removed
+            from the store. This will return <c>false</c> if the token
+            did not exist in the store.</returns>
+        </member>
+        <member name="P:OAuth.Net.Common.ITokenStore.Tokens">
+            <summary>
+            Gets all the tokens in the store as an array.
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.ITokenStore.Count">
+            <summary>
+            The total number of tokens held in the store
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.ITokenStore.RequestTokens">
+            <summary>
+            Gets all the request tokens in the store as an array.
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.ITokenStore.CountRequestTokens">
+            <summary>
+            The number of request tokens held in the store
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.ITokenStore.AccessTokens">
+            <summary>
+            Gets all the access tokens in the store as an array.
+            </summary>
+        </member>
+        <member name="P:OAuth.Net.Common.ITokenStore.CountAccessTokens">
+            <summary>
+            The number of access tokens held in the store
+            </summary>
+        </member>
+        <member name="T:OAuth.Net.Common.OAuthRequestException">
+            <summary>
+            An OAuthRequestException represents an OAuth protocol error. It is implemented
+            using the <a href="http://wiki.oauth.net/ProblemReporting">Problem Reporting 
+            extension</a>.
+            </summary>
+            
+            <remarks>
+            <p>
+            An OAuth exception can be serialized to a HTTP response using the parameters
+            in the nested <see cref="T:OAuth.Net.Common.OAuthRequestExceptionParameters">Parameters</see> class.
+            </p>
+            
+            <p>
+            OAuth exceptions that are sent with a HTTP response can be parsed and rethrown
+            using the <see cref="M:OAuth.Net.Common.OAuthRequestException.TryRethrow(OAuth.Net.Common.OAuthParameters)"/> method.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowVersionRejected(System.String,System.String,System.String)">
+            <summary>
+            Throws an exception indicating that the 
+            <see cref="F:OAuth.Net.Common.Constants.VersionParameter">oauth_version</see> isn't 
+            supported. 
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.VersionRejected">version_rejected</see>.
+            </para>
+            
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.AdditionalParameter">additional parameter</see>
+            (<see cref="F:OAuth.Net.Common.OAuthRequestExceptionParameters.AcceptableVersions">oauth_acceptable_versions</see>)
+            of the exception indicates the range of versions acceptable to the 
+            sender. That is, it means the sender will currently accept an 
+            <see cref="F:OAuth.Net.Common.Constants.VersionParameter">oauth_version</see> that's not 
+            less than the first number and not greater than the second number. 
+            A version <c>A.B</c> is considered greater than <c>C.D</c> if 
+            either <c>A &gt; C</c>, or <c>A = C</c> and <c>B &gt; D</c>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="minVersion">The minimum version of the OAuth protocol
+            that is accepted</param>
+            <param name="maxVersion">The maximum version of the OAuth protocol
+            that is accepted</param>
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:System.ArgumentException">
+            If <paramref name="minVersion"/> and/or <paramref name="maxVersion"/> 
+            is null or empty
+            </exception>
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            On success
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowParametersAbsent(System.String[],System.String)">
+            <summary>
+            Throws an exception indicating that required parameter(s) weren't received.
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ParameterAbsent">parameter_absent</see>.
+            </para>
+            
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.AdditionalParameter">additional parameter</see>
+            (<see cref="F:OAuth.Net.Common.OAuthRequestExceptionParameters.ParametersAbsent">oauth_parameters_absent</see>)
+            of the exception indicates the set of parameter names that are absent,
+            percent-encoded and separated by <c>&amp;</c>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="parameters">The parameters that are absent</param>
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:System.ArgumentException">
+            If <paramref name="parameters"/> is null or empty
+            </exception>
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            On success
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowParametersRejected(System.String[],System.String)">
+            <summary>
+            Throws an exception indicating unexpected parameter(s) were received.
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ParameterRejected">parameter_rejected</see>.
+            </para>
+            
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.AdditionalParameter">additional parameter</see>
+            (<see cref="F:OAuth.Net.Common.OAuthRequestExceptionParameters.ParametersRejected">oauth_parameters_rejected</see>)
+            of the exception consists of a set of parameters, encoded as they would be 
+            in a URL query string. These are parameters that the sender recently 
+            received but doesn't understand. Note that these parameters will be 
+            percent-encoded twice: once to form a query string and again because 
+            the query string is the value of <see cref="F:OAuth.Net.Common.OAuthRequestExceptionParameters.ParametersRejected">oauth_parameters_rejected</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="parameters">The parameters that are rejected</param>
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:System.ArgumentException">
+            If <paramref name="parameters"/> is null or empty.
+            </exception>
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            On success
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowTimestampRefused(System.Int64,System.Int64,System.String)">
+            <summary>
+            Throws an exception indicating that the timestamp was refused.
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TimestampRefused">timestamp_refused</see>.
+            </para>
+            
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.AdditionalParameter">additional parameter</see>
+            (<see cref="F:OAuth.Net.Common.OAuthRequestExceptionParameters.AcceptableTimestamps">oauth_acceptable_timestamps</see>)
+            of the exception consists of two numbers in decimal notation, separated by '-' 
+            (hyphen). It's the range of timestamps acceptable to the sender. That is, 
+            it means the sender will currently accept an 
+            <see cref="F:OAuth.Net.Common.Constants.TimestampParameter">oauth_timestamp</see> that's not less 
+            than the first number and not greater than the second number.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="minTimestamp">The minimum allowable timestamp</param>
+            <param name="maxTimestamp">The maximum allowable timestamp</param>
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:System.ArgumentException">
+            If <paramref name="minTimestamp"/> and/or <paramref name="maxTimestamp"/> 
+            is less than <c>0</c>
+            </exception>
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            On success
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowNonceUsed(System.String)">
+            <summary>
+            Throws an exception indicating the nonce was used in a previous request, 
+            and consequently can't be used now
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.NonceUsed">nonce_used</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowSignatureMethodRejected(System.String)">
+            <summary>
+            Throws an exception indicating the signature method is invalid.
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.SignatureMethodRejected">signature_method_rejected</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowConsumerKeyUnknown(System.String)">
+            <summary>
+            Throws an exception indicating the consumer key is unknown to the
+            service provider.
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ConsumerKeyUnknown">consumer_key_unknown</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowConsumerKeyRejected(System.String)">
+            <summary>
+            Throws an exception indicating the consumer key is permanently unacceptable
+            to the service provider. For example, the consumer may be blacklisted.
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ConsumerKeyRejected">consumer_key_rejected</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowConsumerKeyRefused(System.String)">
+            <summary>
+            Throws an exception indicating the consumer key is temporarily unacceptable
+            to the service provider. For example, the consumer may be being being throttled.
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.ConsumerKeyRefused">consumer_key_refused</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowSignatureInvalid(System.String)">
+            <summary>
+            Throws an exception indicating the supplied signature is invalid. That is, 
+            it doesn't match the signature computed by the Service Provider. 
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.SignatureInvalid">signature_invalid</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowTokenRejected(System.String)">
+            <summary>
+            Throws an exception indicating the supplied token is unacceptable to 
+            the service provider. The reason is unspecified. It might mean that 
+            the token was never issued, or consumed or expired and then subsequently 
+            forgotten by the service provider. 
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TokenRejected">token_rejected</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowTokenUsed(System.String)">
+            <summary>
+            Throws an exception indicating the supplied token has been consumed. 
+            That is, it can't be used any more because it has already been used 
+            in a previous request or requests. 
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TokenUsed">token_used</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowTokenExpired(System.String)">
+            <summary>
+            Throws an exception indicating the supplied token has expired. That 
+            is, it was issued too long ago to be used now. 
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TokenExpired">token_expired</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowTokenRevoked(System.String)">
+            <summary>
+            Throws an exception indicating the supplied token has been revoked. 
+            That is, the service provider has unilaterally decided it will never 
+            accept this token.
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.TokenRevoked">token_revoked</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ThrowPermissionDenied(System.String)">
+            <summary>
+            Throws an exception indicating the consumer does not have the required permissions
+            to acccess this resource        
+            </summary>
+            
+            <remarks>
+            <para>
+            The <see cref="P:OAuth.Net.Common.OAuthRequestException.Problem">problem type</see> is 
+            <see cref="F:OAuth.Net.Common.OAuthRequestExceptionProblemTypes.PermissionDenied">permission_denied</see>.
+            </para>
+            
+            <para>
+            The <paramref name="advice"/> parameter, if supplied, will be
+            stored in the <see cref="P:OAuth.Net.Common.OAuthRequestException.Advice"/> property.
+            </para>
+            
+            <para>
+            The <see cref="P:System.Exception.Source"/> will be <see cref="F:OAuth.Net.Common.OAuthRequestExceptionSources.Local">local</see>.
+            </para>
+            </remarks>
+            
+            <param name="advice">(Optional) Plain text advice for the user 
+            of the consumer</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            Always
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.TryRethrow(OAuth.Net.Common.OAuthParameters)">
+            <summary>
+            Tries to parse an OAuthRequestException from some OAuth parameters. If an exception
+            is indicated, the exception will be re-thrown.
+            </summary>
+            
+            <remarks>
+            <para>
+            If no exception is indicated, this method will return without throwing.
+            </para>
+            
+            <para>
+            This will handle future <a href="http://wiki.oauth.net/ProblemReporting">Problem 
+            Reporting</a> problem types, but not future additional parameters.
+            </para>
+            </remarks>
+            
+            <example>
+            This example shows how to rethrow an OAuth exception transmitted in a HTTP response.
+            
+            <code lang="C#" numberLines="true">
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            OAuthParameters responseParameters = OAuthParameters.Parse(response);
+            OAuthRequestException.TryRethrow(responseParameters);
+            </code>
+            </example>
+            
+            <param name="parameters">The OAuth parameters</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            If the OAuth parameters indicate an OAuth exception
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ToHeaderFormat(System.String)">
+            <summary>
+            Produces a string representation of the exception for use in the
+            HTTP WWW-Authenticate header.
+            </summary>
+            
+            <remarks>
+            The format is similar to:
+            
+            <code>OAuth realm="...", oauth_problem="..", oauth_parameters_absent=".."</code>
+            </remarks>
+            
+            <param name="realm">The realm to put in the header</param>
+            
+            <returns>The exception in WWW-Authenticate header format</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthRequestException.ToString">
+            <summary>
+            Create a string representation of the exception, including the 
+            problem, advice and additional parameter if present.
+            </summary>
+            <returns>String representation of the exception</returns>
+        </member>
+        <member name="P:OAuth.Net.Common.OAuthRequestException.Problem">
+            <summary>
+            The problem type.
+            </summary>
+            
+            <remarks>
+            The value SHOULD be one of the problem types described in the 
+            <a href="http://wiki.oauth.net/ProblemReporting">Problem 
+            Reporting extension</a>.
+            </remarks>
+        </member>
+        <member name="P:OAuth.Net.Common.OAuthRequestException.AdditionalParameter">
+            <summary>
+            An optional additional key-value pair with
+            extra problem reporting information.
+            </summary>
+            
+            <remarks>This should 
+            be one of the extra parameters specified in the
+            <a href="http://wiki.oauth.net/ProblemReporting">Problem 
+            Reporting extension</a>.
+            </remarks>
+        </member>
+        <member name="P:OAuth.Net.Common.OAuthRequestException.Advice">
+            <summary>
+            An optional free-form text value to be shown to the User. 
+            </summary>
+            
+            <remarks>
+            It SHOULD describe the problem in a way that's meaningful 
+            to the User, and suggest how to resolve the problem. 
+            The Consumer MUST NOT interpret it as HTML or any other 
+            markup language; all the characters MUST be displayed to 
+            the user. To indicate a line break, the single character 
+            LF (Unicode U+000A) MUST be used.
+            </remarks>
+        </member>
+        <member name="T:OAuth.Net.Common.OAuthParameterSources">
+            <summary>
+            Flags enumeration to indicate which sources should be used to collate OAuth parameters from. As this is a flags enumeration,
+            different sources can be combined.
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthParameterSources.None">
+            <summary>
+            The parameters should be collated from none
+            of the available sources. This should value not 
+            be used.        
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthParameterSources.HttpAuthorizationHeader">
+            <summary>
+            The HTTP Authorization header should be used
+            to collate parameters from.     
+            </summary>
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthParameterSources.HttpPostBody">
+            <summary>
+            The HTTP POST body should be used to collate
+            parameters from (with a content-type of
+            application/x-www-form-urlencoded)     
+            </summary>        
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthParameterSources.HttpQueryString">
+            <summary>
+            The HTTP query string should be used to 
+            collate parameters from.     
+            </summary>       
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthParameterSources.HttpWwwAuthenticateHeader">
+            <summary>
+            The HTTP WWW-Authenticate header should be used to 
+            collate parameters from.     
+            </summary>       
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthParameterSources.ServiceProviderDefault">
+            <summary>
+            Default sources for service providers are: the 
+            Authorization header, POST body and query string.     
+            </summary>        
+        </member>
+        <member name="F:OAuth.Net.Common.OAuthParameterSources.ConsumerDefault">
+            <summary>
+            Default sources for consumers are: the 
+            WWW-Authenticate header and the POST body.
+            </summary>        
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.#ctor">
+            <summary>
+            Create a new empty OAuthParameters.
+            </summary>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.Parse(System.Web.HttpRequest)">
+            <summary>
+            Parses the OAuth parameters from the HTTP request, sourcing
+            parameters from all 3 of:
+            <list>
+              <item>The HTTP Authorization header, if present</item>
+              <item>The POST body, if present and if the content-type is 
+                    <c>application/x-www-form-urlencoded</c></item>
+              <item>The query string, if present</item>
+            </list>
+            TODO: Mention validation
+            </summary>
+            
+            <param name="request">The HTTP request</param>
+            
+            <returns>
+            An OAuthParameters object containing the parsed reserved OAuth
+            parameters and any additional, valid parameters
+            </returns>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.Parse(System.Web.HttpRequest,OAuth.Net.Common.OAuthParameterSources)">
+             <summary>
+             Parses the OAuth parameters from the HTTP request, sourcing 
+             parameters from the sources specified by <paramref name="sources"/>.
+            
+             TODO: Mention validation
+             </summary>
+             
+             <param name="request">The HTTP request</param>
+             <param name="sources">The sources to collate parameters from 
+             (must not be <c>OAuthParameterSources.None</c>)</param>
+             
+             <returns>
+             An OAuthParameters object containing the parsed reserved OAuth
+             parameters and any additional, valid parameters
+             </returns>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.Parse(System.Net.HttpWebResponse)">
+            <summary>
+            Parses the OAuth parameters from a HttpWebResponse.
+            </summary>
+            <param name="response">The Http response</param>
+            <returns>
+            An OAuthParameters object containing the parsed reserved OAuth parameters and any additional, valid parameters.</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.Parse(OAuth.Net.Common.OAuthResource)">
+            <summary>
+            Parses the OAuth parameters from a OAuthProtectedResponse.
+            </summary>
+            <param name="response">The OAuthProtectedResponse</param>
+            <returns>
+            An OAuthParameters object containing the parsed reserved OAuth parameters and any additional, valid parameters.</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.Parse(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Parses the OAuth parameters from a NameValueCollection
+            </summary>
+            <param name="parameterCollection">the NameValueCollection</param>
+            <returns>
+            An OAuthParameters object containing the parsed reserved OAuth parameters and any additional, valid parameters.</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.GetNonOAuthParameters(System.Collections.Specialized.NameValueCollection[])">
+            <summary>
+            Gets additional non-OAuth parameters from the specified name value collections.
+            </summary>
+            <param name="parameterCollections">The name value collections to source from</param>
+            <returns>A NameValueCollection containing all the additional parameters from the 
+            specified name value collections</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.RequireAllOf(System.String[])">
+            <summary>
+            Validates that all the specified parameters are present and non-empty.
+            </summary>
+            
+            <param name="requiredParameters">The required parameters</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            If any of the required parameters are missing
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.AllowOnly(System.String[])">
+            <summary>
+            Validates that no parameters are present except those specified.
+            The specified parameters do not have to exist (they are optional); 
+            but other parameters MUST not exist.
+            </summary>
+            
+            <param name="allowedParameters">The allowed parameters</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            If any parameters are not in the set of allowed parameters
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.RequireVersion(System.String[])">
+            <summary>
+            Validates that the version matches one of the allowed versions.
+            </summary>
+            
+            <param name="allowedVersions">The allowed version strings, in order
+            from earliest to latest</param>
+            
+            <exception cref="T:OAuth.Net.Common.OAuthRequestException">
+            If the version does not match any of the allowed versions
+            </exception>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.OAuthRequestParams">
+            <summary>
+            Returns a collection of the OAuth parameters that should be included within the HttpRequest.
+            These are used when the OAuth parameters are sent in the querystring or the application/x-www-form-urlencoded
+            body.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.ToNormalizedString(System.String[])">
+            <summary>
+            Creates a normalized representation of the parameters for use in the signature base string.
+            </summary>
+            <param name="excludedParameters">Names of parameters to exclude from the normalized string.</param>
+            <returns>The signature-base normalized representation of the parameters.</returns>
+        </member>
+        <member name="M:OAuth.Net.Common.OAuthParameters.GetParam(System.String,System.Collections.Specialized.NameValueCollection[])">
+            <summary>
+            Gets the specified parameter from one of the specified name value collections. The first value
+            encountered is returned.
+            </summary>
+            <param name="param">The parameter to get</param>
+            <param name="paramCollections">The name value collections to source from</param>
+            <returns>The first value for the parameter or <c>null</c> if it is not contained in
+            any of the sources</returns>
+        </member>
+    </members>
+</doc>

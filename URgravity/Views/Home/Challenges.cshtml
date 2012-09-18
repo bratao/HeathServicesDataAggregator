@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Challenges";
+}
+
+<div id="challengemain">
+    <h2>Challenge Your Friends!</h2>
+    <form>
+        <span class="formobject">Choose a Type of Challenge: The Victor </span><br />
+        <input type="radio" name="challengetype" />Losest the highest percentage of weight<br />
+        <input type="radio" name="challengetype" />was the most active (Pedometer Data)<br />
+        <input type="radio" name="challengetype" />Ran the farthest<br /><br />
+        <span class="formobject">Choose a time frame: The Challenge Starts on </span>
+        <input type="date" /><br />
+
+        <span class="formobject">And Lasts <input type="number" width="30"/> Days</span><br />
+
+
+        <span class="formobject">Who Can Play?</span><br />
+        <input type="radio" name="invitees" />Anyone<br />
+        <input type="radio" name="invitees" />My Friends<br />
+        <input type="radio" name="invitees" />Just Me<br />
+        <textarea rows="5" cols="20" placeholder="Type Your Friends Emails Here!"></textarea><br />
+
+
+        <span class="formobject">Post To Facebook?</span>
+        <input type="radio" name="fb" />YES!
+        <input type="radio" name="fb" />No Thanks...<br />
+
+        <input type="Submit" value="Create My Contest!" />
+
+
+    </form>
+
+</div>
